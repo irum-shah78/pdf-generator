@@ -6,12 +6,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [pdfUrl, setPdfUrl] = useState(null);
 
-  // const dynamicData = {
-  //   backgroundUrl: "https://via.placeholder.com/800x600.png",
-  //   logoUrl: "https://via.placeholder.com/800x600.png",
-  //   title: "Global Sustainability Report 2024",
-  // };
-
   const data = [
     {
       standard: "",
@@ -45,6 +39,17 @@ export default function Home() {
     }
   };
 
+  const handleDownloadPDF = () => {
+    if (pdfUrl) {
+      const link = document.createElement("a");
+      link.href = pdfUrl;
+      link.download = "generated_result.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   return (
     <div>
       <h1>PDF Generator</h1>
@@ -53,11 +58,16 @@ export default function Home() {
       </button>
 
       {pdfUrl && (
-        <iframe
-          src={`${pdfUrl}#toolbar=0`}
-          title="Generated PDF"
-          style={{ width: "100%", height: "70vh", border: 0 }}
-        ></iframe>
+        <div>
+          <iframe
+            src={`${pdfUrl}#toolbar=0`}
+            title="Generated PDF"
+            style={{ width: "100%", height: "70vh", border: 0 }}
+          ></iframe>
+          <button onClick={handleDownloadPDF} style={{ marginTop: "10px" }}>
+            Download PDF
+          </button>
+        </div>
       )}
     </div>
   );
