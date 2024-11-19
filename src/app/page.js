@@ -13,7 +13,6 @@ export default function Home() {
       title: "Direct (Scope 1) GHG emissions",
       description:
         "Gross direct (Scope 1) GHG emissions in metric tons of CO2 equivalent.",
-      assurance: "",
     },
     ...Array(10).fill({
       standard: "",
@@ -21,7 +20,6 @@ export default function Home() {
       title: "Direct (Scope 1) GHG emissions",
       description:
         "Gross direct (Scope 1) GHG emissions in metric tons of CO2 equivalent.",
-      assurance: "",
     }),
   ];
 
