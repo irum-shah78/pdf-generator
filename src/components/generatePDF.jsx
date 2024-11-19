@@ -10,6 +10,14 @@ import {
 } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
+  footer: {
+    position: "absolute",
+    bottom: 10,
+    left: 0,
+    right: 0,
+    textAlign: "center",
+    fontSize: 10,
+  },
   // Page 1
   page1: {
     position: "relative",
@@ -259,6 +267,12 @@ const PDFDocument = ({ data }) => (
       <View style={styles.centerContent}>
         <Text style={styles.content}>GLOBAL SUSTAINABILITY REPORT 2024</Text>
       </View>
+      <Text
+        style={styles.footer}
+        render={({ pageNumber, totalPages }) =>
+          `Page ${pageNumber} of ${totalPages}`
+        }
+      />
     </Page>
 
     {/* Page 2 */}
@@ -299,7 +313,7 @@ const PDFDocument = ({ data }) => (
         diverse needs and expectations of each stakeholder group.
       </Text>
 
-      <Text style={styles.heading}>Contents</Text>
+      <Text style={styles.heading}>Table of Contents</Text>
       <View style={styles.contents}>
         <View style={styles.column}>
           <Text style={styles.sectionTitle}>Introduction</Text>
@@ -330,6 +344,12 @@ const PDFDocument = ({ data }) => (
           <Text style={styles.item}>68 Financial Capital</Text>
         </View>
       </View>
+      <Text
+        style={styles.footer}
+        render={({ pageNumber, totalPages }) =>
+          `Page ${pageNumber} of ${totalPages}`
+        }
+      />
     </Page>
 
     {/* Page 3 */}
@@ -347,20 +367,17 @@ const PDFDocument = ({ data }) => (
       {/* Table */}
       <View style={styles.table}>
         <View style={styles.tableHeader}>
-          <Text style={[styles.tableHeaderText, { width: "18%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "20%" }]}>
             GRI Standards
           </Text>
           <Text style={[styles.tableHeaderText, { width: "10%" }]}>
             Disclosure Number
           </Text>
-          <Text style={[styles.tableHeaderText, { width: "25%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "30%" }]}>
             Disclosure Title
           </Text>
-          <Text style={[styles.tableHeaderText, { width: "30%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "40%" }]}>
             Page Reference by Evidences
-          </Text>
-          <Text style={[styles.tableHeaderText, { width: "17%" }]}>
-            External Assurance29(pg106-113)
           </Text>
         </View>
 
@@ -377,40 +394,42 @@ const PDFDocument = ({ data }) => (
         </View>
 
         <View style={styles.tableRow}>
-          <Text style={[styles.tableCell, { width: "18%" }]}>
+          <Text style={[styles.tableCell, { width: "20%" }]}>
             GRI 2: General Disclosures 2021
           </Text>
           <Text style={[styles.tableCell, { width: "10%" }]}>302-1</Text>
-          <Text style={[styles.tableCell, { width: "25%" }]}>
+          <Text style={[styles.tableCell, { width: "30%" }]}>
             Energy consumption within the organization
           </Text>
-          <Text style={[styles.tableCell, { width: "30%" }]}>
+          <Text style={[styles.tableCell, { width: "40%" }]}>
             Total fuel consumption within the organization from non-renewable
             sources, in joules or multiples, and including fuel types used.
           </Text>
-          <Text style={[styles.tableCell, { width: "17%" }]}></Text>
         </View>
 
         {data.map((row, index) => (
           <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, { width: "18%" }]}>
+            <Text style={[styles.tableCell, { width: "20%" }]}>
               {row.standard}
             </Text>
             <Text style={[styles.tableCell, { width: "10%" }]}>
               {row.number}
             </Text>
-            <Text style={[styles.tableCell, { width: "25%" }]}>
+            <Text style={[styles.tableCell, { width: "30%" }]}>
               {row.title}
             </Text>
-            <Text style={[styles.tableCell, { width: "30%" }]}>
+            <Text style={[styles.tableCell, { width: "40%" }]}>
               {row.description}
-            </Text>
-            <Text style={[styles.tableCell, { width: "17%" }]}>
-              {row.assurance}
             </Text>
           </View>
         ))}
       </View>
+      <Text
+        style={styles.footer}
+        render={({ pageNumber, totalPages }) =>
+          `Page ${pageNumber} of ${totalPages}`
+        }
+      />
     </Page>
 
     {/* Page 4 */}
@@ -428,20 +447,17 @@ const PDFDocument = ({ data }) => (
       {/* Table */}
       <View style={styles.table4}>
         <View style={styles.tableHeader4}>
-          <Text style={[styles.tableHeaderText, { width: "18%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "20%" }]}>
             GRI Standards
           </Text>
           <Text style={[styles.tableHeaderText, { width: "10%" }]}>
             Disclosure Number
           </Text>
-          <Text style={[styles.tableHeaderText, { width: "25%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "30%" }]}>
             Disclosure Title
           </Text>
-          <Text style={[styles.tableHeaderText, { width: "30%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "40%" }]}>
             Page Reference by Evidences
-          </Text>
-          <Text style={[styles.tableHeaderText, { width: "17%" }]}>
-            External Assurance29(pg106-113)
           </Text>
         </View>
 
@@ -458,40 +474,42 @@ const PDFDocument = ({ data }) => (
         </View>
 
         <View style={styles.tableRow}>
-          <Text style={[styles.tableCell, { width: "18%" }]}>
+          <Text style={[styles.tableCell, { width: "20%" }]}>
             GRI 2: General Disclosures 2021
           </Text>
           <Text style={[styles.tableCell, { width: "10%" }]}>302-1</Text>
-          <Text style={[styles.tableCell, { width: "25%" }]}>
+          <Text style={[styles.tableCell, { width: "30%" }]}>
             Energy consumption within the organization
           </Text>
-          <Text style={[styles.tableCell, { width: "30%" }]}>
+          <Text style={[styles.tableCell, { width: "40%" }]}>
             Total fuel consumption within the organization from non-renewable
             sources, in joules or multiples, and including fuel types used.
           </Text>
-          <Text style={[styles.tableCell, { width: "17%" }]}></Text>
         </View>
 
         {data.map((row, index) => (
           <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, { width: "18%" }]}>
+            <Text style={[styles.tableCell, { width: "20%" }]}>
               {row.standard}
             </Text>
             <Text style={[styles.tableCell, { width: "10%" }]}>
               {row.number}
             </Text>
-            <Text style={[styles.tableCell, { width: "25%" }]}>
+            <Text style={[styles.tableCell, { width: "30%" }]}>
               {row.title}
             </Text>
-            <Text style={[styles.tableCell, { width: "30%" }]}>
+            <Text style={[styles.tableCell, { width: "40%" }]}>
               {row.description}
-            </Text>
-            <Text style={[styles.tableCell, { width: "17%" }]}>
-              {row.assurance}
             </Text>
           </View>
         ))}
       </View>
+      <Text
+        style={styles.footer}
+        render={({ pageNumber, totalPages }) =>
+          `Page ${pageNumber} of ${totalPages}`
+        }
+      />
     </Page>
 
     {/* Page 5 */}
@@ -509,20 +527,17 @@ const PDFDocument = ({ data }) => (
       {/* Table */}
       <View style={styles.table5}>
         <View style={styles.tableHeader5}>
-          <Text style={[styles.tableHeaderText, { width: "18%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "20%" }]}>
             GRI Standards
           </Text>
           <Text style={[styles.tableHeaderText, { width: "10%" }]}>
             Disclosure Number
           </Text>
-          <Text style={[styles.tableHeaderText, { width: "25%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "30%" }]}>
             Disclosure Title
           </Text>
-          <Text style={[styles.tableHeaderText, { width: "30%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "40%" }]}>
             Page Reference by Evidences
-          </Text>
-          <Text style={[styles.tableHeaderText, { width: "17%" }]}>
-            External Assurance29(pg106-113)
           </Text>
         </View>
 
@@ -539,40 +554,43 @@ const PDFDocument = ({ data }) => (
         </View>
 
         <View style={styles.tableRow}>
-          <Text style={[styles.tableCell, { width: "18%" }]}>
+          <Text style={[styles.tableCell, { width: "20%" }]}>
             GRI 2: General Disclosures 2021
           </Text>
           <Text style={[styles.tableCell, { width: "10%" }]}>302-1</Text>
-          <Text style={[styles.tableCell, { width: "25%" }]}>
+          <Text style={[styles.tableCell, { width: "30%" }]}>
             Energy consumption within the organization
           </Text>
-          <Text style={[styles.tableCell, { width: "30%" }]}>
+          <Text style={[styles.tableCell, { width: "40%" }]}>
             Total fuel consumption within the organization from non-renewable
             sources, in joules or multiples, and including fuel types used.
           </Text>
-          <Text style={[styles.tableCell, { width: "17%" }]}></Text>
         </View>
 
         {data.map((row, index) => (
           <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, { width: "18%" }]}>
+            <Text style={[styles.tableCell, { width: "20%" }]}>
               {row.standard}
             </Text>
             <Text style={[styles.tableCell, { width: "10%" }]}>
               {row.number}
             </Text>
-            <Text style={[styles.tableCell, { width: "25%" }]}>
+            <Text style={[styles.tableCell, { width: "30%" }]}>
               {row.title}
             </Text>
-            <Text style={[styles.tableCell, { width: "30%" }]}>
+            <Text style={[styles.tableCell, { width: "40%" }]}>
               {row.description}
-            </Text>
-            <Text style={[styles.tableCell, { width: "17%" }]}>
-              {row.assurance}
             </Text>
           </View>
         ))}
       </View>
+
+      <Text
+        style={styles.footer}
+        render={({ pageNumber, totalPages }) =>
+          `Page ${pageNumber} of ${totalPages}`
+        }
+      />
     </Page>
 
     {/* Page 6 */}
@@ -590,20 +608,17 @@ const PDFDocument = ({ data }) => (
       {/* Table */}
       <View style={styles.table5}>
         <View style={styles.tableHeader5}>
-          <Text style={[styles.tableHeaderText, { width: "18%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "20%" }]}>
             GRI Standards
           </Text>
           <Text style={[styles.tableHeaderText, { width: "10%" }]}>
             Disclosure Number
           </Text>
-          <Text style={[styles.tableHeaderText, { width: "25%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "30%" }]}>
             Disclosure Title
           </Text>
-          <Text style={[styles.tableHeaderText, { width: "30%" }]}>
+          <Text style={[styles.tableHeaderText, { width: "40%" }]}>
             Page Reference by Evidences
-          </Text>
-          <Text style={[styles.tableHeaderText, { width: "17%" }]}>
-            External Assurance29(pg106-113)
           </Text>
         </View>
 
@@ -620,40 +635,42 @@ const PDFDocument = ({ data }) => (
         </View>
 
         <View style={styles.tableRow}>
-          <Text style={[styles.tableCell, { width: "18%" }]}>
+          <Text style={[styles.tableCell, { width: "20%" }]}>
             GRI 2: General Disclosures 2021
           </Text>
           <Text style={[styles.tableCell, { width: "10%" }]}>302-1</Text>
-          <Text style={[styles.tableCell, { width: "25%" }]}>
+          <Text style={[styles.tableCell, { width: "30%" }]}>
             Energy consumption within the organization
           </Text>
-          <Text style={[styles.tableCell, { width: "30%" }]}>
+          <Text style={[styles.tableCell, { width: "40%" }]}>
             Total fuel consumption within the organization from non-renewable
             sources, in joules or multiples, and including fuel types used.
           </Text>
-          <Text style={[styles.tableCell, { width: "17%" }]}></Text>
         </View>
 
         {data.map((row, index) => (
           <View key={index} style={styles.tableRow}>
-            <Text style={[styles.tableCell, { width: "18%" }]}>
+            <Text style={[styles.tableCell, { width: "20%" }]}>
               {row.standard}
             </Text>
             <Text style={[styles.tableCell, { width: "10%" }]}>
               {row.number}
             </Text>
-            <Text style={[styles.tableCell, { width: "25%" }]}>
+            <Text style={[styles.tableCell, { width: "30%" }]}>
               {row.title}
             </Text>
-            <Text style={[styles.tableCell, { width: "30%" }]}>
+            <Text style={[styles.tableCell, { width: "40%" }]}>
               {row.description}
-            </Text>
-            <Text style={[styles.tableCell, { width: "17%" }]}>
-              {row.assurance}
             </Text>
           </View>
         ))}
       </View>
+      <Text
+        style={styles.footer}
+        render={({ pageNumber, totalPages }) =>
+          `Page ${pageNumber} of ${totalPages}`
+        }
+      />
     </Page>
   </Document>
 );
